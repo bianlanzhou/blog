@@ -15,7 +15,7 @@ Post.prototype.save = function(callback){
         date :date,
         year : date.getFullYear(),
         month :date.getFullYear() +'-'+(date.getMonth()+1),
-        day : date.getFullYear() + '-' +(date.getMonth()+1) +"-"+(date.getDate())
+        day : date.getFullYear() + '-' +(date.getMonth()+1) +"-"+(date.getDate()<10?("0"+date.getDate()):date.getDate())
     }
     var post = {
         title : this.title,
@@ -197,13 +197,37 @@ Post.getTen = function(name,page,callback){
                 }).sort({"time":-1}).toArray(function(err,docs){
                        mongodb.close();
                        if(err){
-                           callback(err);
+                          return callback(err);
                        }
                     docs.forEach(function(doc){
                         doc.post = markdown.toHTML(doc.post);
                     });
                     callback(null,docs,total)
                 });
+            });
+        });
+    });
+}
+Post.getArchive = function(callback){
+    mongodb.open(function(err,db){
+        if(err){
+            callback(err);
+        }
+        db.collection('posts',function(err,collection){
+            if(err){
+                mongodb.close();
+                return callback(err);
+            }
+            collection.find({},{
+                "name":1,
+                "title":1,
+                "time":1
+            }).sort({time:-1}).toArray(function(err,docs){
+                mongodb.close();
+                if(err){
+                    return callback(err);
+                }
+                return callback(null,docs);
             });
         });
     });
