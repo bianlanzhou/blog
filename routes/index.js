@@ -6,10 +6,12 @@ var crypto = require('crypto');
 var fs = require('fs');
 User = require('../models/user.js');
 Post = require('../models/post.js');
+Comment = require('../models/comment.js');
 
 module.exports = function(app){
     app.get('/',function(req,res){
-       Post.getAll(null,function(err,posts){
+       var page = req.query.p?parseInt(req.query.p):1;
+       Post.getTen(null,page,function(err,posts,total){
            if(err){
                posts = [];
            }
@@ -17,6 +19,9 @@ module.exports = function(app){
                title:'主页',
                user:req.session.user,
                posts:posts,
+               page:page,
+               isFirstPage:(page-1) == 0,
+               isLastPage:((page-1)*10+posts.length)==total,
                success:req.flash('success').toString(),
                error:req.flash('error').toString()
            })
@@ -169,6 +174,7 @@ module.exports = function(app){
         return res.redirect('/upload');
     });
     app.get('/u/:name',function(req,res){
+        var page = req.query.p?parseInt(req.query.p):1;
         User.get(req.params.name,function(err,user){
             if(err){
                 req.flash('error',err);
@@ -178,7 +184,7 @@ module.exports = function(app){
                 req.flash('error','用户不存在!');
                 return res.redirect('/');
             }
-            Post.getAll(req.params.name,function(err,posts){
+            Post.getTen(req.params.name,page,function(err,posts,total){
                 if(err){
                     req.flash('error',err);
                     return res.redirect('/');
@@ -187,6 +193,9 @@ module.exports = function(app){
                     title:user.name,
                     user:user,
                     posts:posts,
+                    page:page,
+                    isFirstPage:(page-1) == 0,
+                    isLastPage:((page-1)*10+posts.length)==total,
                     success:req.flash('success').toString(),
                     error:req.flash('error').toString()
                 });
@@ -207,6 +216,27 @@ module.exports = function(app){
                    error:req.flash('error').toString()
                });
            });
+    });
+    app.post('/u/:name/:day/:title',function(req,res){
+        var date = new Date();
+        var time = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+" "+date.getHours()+":"+(date.getMinutes()<10?("0"+date.getMinutes()):date.getMinutes());
+        var comment = {
+            name:req.body.name,
+            email:req.body.email,
+            time:time,
+            website : req.body.website,
+            content: req.body.content
+        }
+
+        var newComment = new Comment(req.params.name,req.params.title,req.params.day,comment);
+        newComment.save(function(err){
+            if(err){
+                req.flash('error',err);
+                return res.redirect('back');
+            }
+            req.flash('success','留言成功!');
+            return res.redirect('back');
+        })
     });
     app.get('/edit/:name/:day/:title',checkLogin);
     app.get('/edit/:name/:day/:title',function(req,res){

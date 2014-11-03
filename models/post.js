@@ -21,7 +21,8 @@ Post.prototype.save = function(callback){
         title : this.title,
         name :this.name,
         time : time,
-        post : this.post
+        post : this.post,
+        comments :[]
     }
     mongodb.open(function(err,db){
         if(err){
@@ -91,7 +92,12 @@ Post.getOne = function(name,day,title,callback){
                 if(err){
                     return callback(err);
                 }
-                doc.post = markdown.toHTML(doc.post);
+                if(doc){
+                    doc.post = markdown.toHTML(doc.post);
+                    doc.comments.forEach(function(comment){
+                        comment.content = markdown.toHTML(comment.content);
+                    });
+                }
                 callback(null,doc);
             });
         });
@@ -167,6 +173,38 @@ Post.remove=function(name,day,title,callback){
                 }
                 return callback(null);
             })
+        });
+    });
+}
+Post.getTen = function(name,page,callback){
+    mongodb.open(function(err,db){
+        if(err){
+            return callback(err);
+        }
+        db.collection('posts',function(err,collection){
+            if(err){
+                mongodb.close();
+                return callback(err);
+            }
+            var query = {};
+            if(name){
+                query = {"name":name};
+            }
+            collection.count(query,function(err,total){
+                collection.find(query,{
+                    skip:(page-1)*10,
+                    limit:10
+                }).sort({"time":-1}).toArray(function(err,docs){
+                       mongodb.close();
+                       if(err){
+                           callback(err);
+                       }
+                    docs.forEach(function(doc){
+                        doc.post = markdown.toHTML(doc.post);
+                    });
+                    callback(null,docs,total)
+                });
+            });
         });
     });
 }
