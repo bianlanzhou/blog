@@ -3,10 +3,11 @@
  */
 var mongodb = require('./db');
 var markdown = require('markdown').markdown;
-function Post(name,title,post){
+function Post(name,title,tags,post){
     this.name = name;
     this.title = title;
     this.post = post;
+    this.tags = tags;
 }
 module.exports = Post;
 Post.prototype.save = function(callback){
@@ -22,6 +23,7 @@ Post.prototype.save = function(callback){
         name :this.name,
         time : time,
         post : this.post,
+        tags : this.tags,
         comments :[]
     }
     mongodb.open(function(err,db){
@@ -228,6 +230,54 @@ Post.getArchive = function(callback){
                     return callback(err);
                 }
                 return callback(null,docs);
+            });
+        });
+    });
+}
+Post.getTags = function(callback){
+    mongodb.open(function(err,db){
+        if(err){
+            return callback(err);
+        }
+        db.collection('posts',function(err,collection){
+            if(err){
+                mongodb.close();
+                return callback(err);
+            }
+            collection.distinct('tags',function(err,tags){
+                mongodb.close();
+                if(err){
+                    return callback(err);
+                }
+                return callback(null,tags);
+            });
+        });
+    });
+}
+Post.getTag = function(tag,callback){
+    mongodb.open(function(err,db){
+        if(err){
+            return callback(err);
+        }
+        db.collection('posts',function(err,collection){
+            if(err){
+                mongodb.close();
+                return callback(err);
+            }
+            collection.find({
+                tags:tag
+            },{
+                name:1,
+                title:1,
+                time:1
+            }).sort({
+                time:-1
+            }).toArray(function(err,posts){
+                mongodb.close();
+                if(err){
+                    return callback(err);
+                }
+                callback(null,posts);
             });
         });
     });

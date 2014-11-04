@@ -8,6 +8,12 @@
 <p class="info">
      作 者 :<a href="/u/<%=post.name%>" ><%=post.name%></a> |
      日 期 :<%=post.time.day %>
+     标 签 :
+    <%post.tags.forEach(function(index,tag){%>
+        <%if(tag){%>
+            <a class="tag" href="/tags/<%=tag%>" ><%=tag%></a>
+        <%}%>
+    <%})%>
 </p>
 <p>
     <%- post.post%>
