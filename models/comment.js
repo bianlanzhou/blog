@@ -13,6 +13,7 @@ Comment.prototype.save = function(callback){
     var name = this.name,
         day=this.day,
         title=this.title,
+        head = this.head,
         comment = this.comment;
     mongodb.open(function(err,db){
         if(err){
