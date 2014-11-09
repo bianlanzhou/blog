@@ -261,7 +261,7 @@ module.exports = function(app){
     });
     app.post('/edit/:name/:day/:title',checkLogin);
     app.post('/edit/:name/:day/:title',function(req,res){
-       Post.update(req.session.user.name,req.params.day,req.params.title,req.params.post,function(err){
+       Post.update(req.session.user.name,req.params.day,req.params.title,req.body.post,function(err){
            var url = '/u/'+ req.session.user.name +'/'+req.params.day +'/'+req.params.title;
            if(err){
                 req.flash('error',err);

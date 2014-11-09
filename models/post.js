@@ -160,9 +160,9 @@ Post.update=function(name,day,title,post,callback){
             }
             collection.update({
                 "name":name,
-                "day":day,
+                "time.day":day,
                 "title":title
-            },{set:{post:post}},function(err){
+            },{$set:{"post":post}},function(err){
                 mongodb.close();
                 if(err){
                    return callback(err);
