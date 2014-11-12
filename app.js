@@ -11,6 +11,8 @@ var mongoStore = require('connect-mongo')(express);
 var settings = require('./settings');
 var flash = require('connect-flash');
 var app = express();
+var passport = require("passport"),
+    GithubStrategy = require("passport-github").Strategy;
 
 
 // all environments
@@ -31,10 +33,20 @@ app.use(express.session({
         db:settings.db
     })
 }))
+app.use(passport.initialize());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
+passport.use(
+    new GithubStrategy({
+        clientID : "621e37e8ada9a3a7a6f6",
+        clientSecret:"f0ddf8ccf2b7dffb3fd48ff59a5d6dd9c11761bd",
+        callbackURL:"http://localhost:3000/github/callback"
+    },function(accessToken,refreshToken,profile,done){
+        done(null,profile);
+    })
+)
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }

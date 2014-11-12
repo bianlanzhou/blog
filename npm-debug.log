@@ -87,126 +87,117 @@
 32 verbose lock passport-gihub@* C:\Users\Administrator\AppData\Roaming\npm-cache\be1b5404-passport-gihub.lock
 33 silly addNameRange { name: 'passport', range: '*', hasData: false }
 34 silly addNameRange { name: 'passport-gihub', range: '*', hasData: false }
-35 verbose request where is /passport
+35 verbose request where is /passport-gihub
 36 verbose request registry https://registry.npmjs.org/
-37 verbose request id 11b70dba6fdeb479
-38 verbose url raw /passport
-39 verbose url resolving [ 'https://registry.npmjs.org/', './passport' ]
-40 verbose url resolved https://registry.npmjs.org/passport
-41 verbose request where is https://registry.npmjs.org/passport
-42 info trying registry request attempt 1 at 13:33:17
-43 http GET https://registry.npmjs.org/passport
-44 verbose request where is /passport-gihub
+37 verbose request id 44702fb81e2799ef
+38 verbose url raw /passport-gihub
+39 verbose url resolving [ 'https://registry.npmjs.org/', './passport-gihub' ]
+40 verbose url resolved https://registry.npmjs.org/passport-gihub
+41 verbose request where is https://registry.npmjs.org/passport-gihub
+42 info trying registry request attempt 1 at 13:45:05
+43 http GET https://registry.npmjs.org/passport-gihub
+44 verbose request where is /passport
 45 verbose request registry https://registry.npmjs.org/
-46 verbose url raw /passport-gihub
-47 verbose url resolving [ 'https://registry.npmjs.org/', './passport-gihub' ]
-48 verbose url resolved https://registry.npmjs.org/passport-gihub
-49 verbose request where is https://registry.npmjs.org/passport-gihub
-50 info trying registry request attempt 1 at 13:33:17
-51 http GET https://registry.npmjs.org/passport-gihub
-52 http 404 https://registry.npmjs.org/passport-gihub
-53 verbose headers { date: 'Sun, 09 Nov 2014 05:32:57 GMT',
-53 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-53 verbose headers   'content-type': 'application/json',
-53 verbose headers   'cache-control': 'max-age=0',
-53 verbose headers   'content-length': '52',
-53 verbose headers   'accept-ranges': 'bytes',
-53 verbose headers   via: '1.1 varnish',
-53 verbose headers   age: '0',
-53 verbose headers   'x-served-by': 'cache-ty68-TYO',
-53 verbose headers   'x-cache': 'MISS',
-53 verbose headers   'x-cache-hits': '0',
-53 verbose headers   'x-timer': 'S1415511177.333816,VS0,VE131',
-53 verbose headers   'keep-alive': 'timeout=10, max=50',
-53 verbose headers   connection: 'Keep-Alive' }
-54 silly registry.get cb [ 404,
-54 silly registry.get   { date: 'Sun, 09 Nov 2014 05:32:57 GMT',
-54 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-54 silly registry.get     'content-type': 'application/json',
-54 silly registry.get     'cache-control': 'max-age=0',
-54 silly registry.get     'content-length': '52',
-54 silly registry.get     'accept-ranges': 'bytes',
-54 silly registry.get     via: '1.1 varnish',
-54 silly registry.get     age: '0',
-54 silly registry.get     'x-served-by': 'cache-ty68-TYO',
-54 silly registry.get     'x-cache': 'MISS',
-54 silly registry.get     'x-cache-hits': '0',
-54 silly registry.get     'x-timer': 'S1415511177.333816,VS0,VE131',
-54 silly registry.get     'keep-alive': 'timeout=10, max=50',
-54 silly registry.get     connection: 'Keep-Alive' } ]
-55 silly lockFile be1b5404-passport-gihub passport-gihub@*
+46 verbose url raw /passport
+47 verbose url resolving [ 'https://registry.npmjs.org/', './passport' ]
+48 verbose url resolved https://registry.npmjs.org/passport
+49 verbose request where is https://registry.npmjs.org/passport
+50 info trying registry request attempt 1 at 13:45:05
+51 verbose etag "2T6LLQOTUE6LRP8RD8SUZ5MIG"
+52 http GET https://registry.npmjs.org/passport
+53 http 404 https://registry.npmjs.org/passport-gihub
+54 verbose headers { date: 'Sun, 09 Nov 2014 05:44:44 GMT',
+54 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+54 verbose headers   'content-type': 'application/json',
+54 verbose headers   'cache-control': 'max-age=0',
+54 verbose headers   'content-length': '52',
+54 verbose headers   'accept-ranges': 'bytes',
+54 verbose headers   via: '1.1 varnish',
+54 verbose headers   age: '0',
+54 verbose headers   'x-served-by': 'cache-ty66-TYO',
+54 verbose headers   'x-cache': 'MISS',
+54 verbose headers   'x-cache-hits': '0',
+54 verbose headers   'x-timer': 'S1415511884.758457,VS0,VE184',
+54 verbose headers   'keep-alive': 'timeout=10, max=50',
+54 verbose headers   connection: 'Keep-Alive' }
+55 silly registry.get cb [ 404,
+55 silly registry.get   { date: 'Sun, 09 Nov 2014 05:44:44 GMT',
+55 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+55 silly registry.get     'content-type': 'application/json',
+55 silly registry.get     'cache-control': 'max-age=0',
+55 silly registry.get     'content-length': '52',
+55 silly registry.get     'accept-ranges': 'bytes',
+55 silly registry.get     via: '1.1 varnish',
+55 silly registry.get     age: '0',
+55 silly registry.get     'x-served-by': 'cache-ty66-TYO',
+55 silly registry.get     'x-cache': 'MISS',
+55 silly registry.get     'x-cache-hits': '0',
+55 silly registry.get     'x-timer': 'S1415511884.758457,VS0,VE184',
+55 silly registry.get     'keep-alive': 'timeout=10, max=50',
+55 silly registry.get     connection: 'Keep-Alive' } ]
 56 silly lockFile be1b5404-passport-gihub passport-gihub@*
-57 http 200 https://registry.npmjs.org/passport
-58 silly registry.get cb [ 200,
-58 silly registry.get   { date: 'Sun, 09 Nov 2014 05:32:57 GMT',
-58 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
-58 silly registry.get     etag: '"2T6LLQOTUE6LRP8RD8SUZ5MIG"',
-58 silly registry.get     'content-type': 'application/json',
-58 silly registry.get     'cache-control': 'max-age=60',
-58 silly registry.get     'content-length': '33714',
-58 silly registry.get     'accept-ranges': 'bytes',
-58 silly registry.get     via: '1.1 varnish',
-58 silly registry.get     age: '0',
-58 silly registry.get     'x-served-by': 'cache-ty67-TYO',
-58 silly registry.get     'x-cache': 'HIT',
-58 silly registry.get     'x-cache-hits': '1',
-58 silly registry.get     'x-timer': 'S1415511177.335873,VS0,VE179',
-58 silly registry.get     vary: 'Accept',
-58 silly registry.get     'keep-alive': 'timeout=10, max=50',
-58 silly registry.get     connection: 'Keep-Alive' } ]
-59 silly addNameRange number 2 { name: 'passport', range: '*', hasData: true }
-60 silly addNameRange versions [ 'passport',
-60 silly addNameRange   [ '0.1.0',
-60 silly addNameRange     '0.1.1',
-60 silly addNameRange     '0.1.2',
-60 silly addNameRange     '0.1.3',
-60 silly addNameRange     '0.1.4',
-60 silly addNameRange     '0.1.5',
-60 silly addNameRange     '0.1.6',
-60 silly addNameRange     '0.1.7',
-60 silly addNameRange     '0.1.8',
-60 silly addNameRange     '0.1.9',
-60 silly addNameRange     '0.1.10',
-60 silly addNameRange     '0.1.11',
-60 silly addNameRange     '0.1.12',
-60 silly addNameRange     '0.1.13',
-60 silly addNameRange     '0.1.14',
-60 silly addNameRange     '0.1.15',
-60 silly addNameRange     '0.1.16',
-60 silly addNameRange     '0.1.17',
-60 silly addNameRange     '0.1.18',
-60 silly addNameRange     '0.2.0',
-60 silly addNameRange     '0.2.1' ] ]
-61 verbose addNamed [ 'passport', '0.2.1' ]
-62 verbose addNamed [ '0.2.1', '0.2.1' ]
-63 silly lockFile b563cf22-passport-0-2-1 passport@0.2.1
-64 verbose lock passport@0.2.1 C:\Users\Administrator\AppData\Roaming\npm-cache\b563cf22-passport-0-2-1.lock
-65 silly lockFile 06aec021--org-passport-passport-0-2-1-tgz https://registry.npmjs.org/passport/-/passport-0.2.1.tgz
-66 verbose lock https://registry.npmjs.org/passport/-/passport-0.2.1.tgz C:\Users\Administrator\AppData\Roaming\npm-cache\06aec021--org-passport-passport-0-2-1-tgz.lock
-67 verbose addRemoteTarball [ 'https://registry.npmjs.org/passport/-/passport-0.2.1.tgz',
-67 verbose addRemoteTarball   'a7d34c07b30fb605be885edbc8c93e5142e38574' ]
-68 info retry fetch attempt 1 at 13:33:18
-69 verbose fetch to= C:\Users\ADMINI~1\AppData\Local\Temp\npm-6876-Kz-++YSz\registry.npmjs.org\passport\-\passport-0.2.1.tgz
-70 http GET https://registry.npmjs.org/passport/-/passport-0.2.1.tgz
-71 http 200 https://registry.npmjs.org/passport/-/passport-0.2.1.tgz
-72 silly lockFile 06aec021--org-passport-passport-0-2-1-tgz https://registry.npmjs.org/passport/-/passport-0.2.1.tgz
-73 silly lockFile 06aec021--org-passport-passport-0-2-1-tgz https://registry.npmjs.org/passport/-/passport-0.2.1.tgz
-74 silly lockFile b563cf22-passport-0-2-1 passport@0.2.1
-75 silly lockFile b563cf22-passport-0-2-1 passport@0.2.1
-76 silly lockFile 55e2d188-passport passport@*
-77 silly lockFile 55e2d188-passport passport@*
-78 error 404 404 Not Found: passport-gihub
-78 error 404
-78 error 404 'passport-gihub' is not in the npm registry.
-78 error 404 You should bug the author to publish it
-78 error 404 It was specified as a dependency of 'blog'
-78 error 404
-78 error 404 Note that you can also install from a
-78 error 404 tarball, folder, or http url, or git url.
-79 error System Windows_NT 6.1.7601
-80 error command "D:\\env\\node\\\\node.exe" "D:\\env\\node\\node_modules\\npm\\bin\\npm-cli.js" "install"
-81 error cwd E:\workspace-nodejs\blog
-82 error node -v v0.10.33
-83 error npm -v 1.4.28
-84 error code E404
-85 verbose exit [ 1, true ]
+57 silly lockFile be1b5404-passport-gihub passport-gihub@*
+58 http 304 https://registry.npmjs.org/passport
+59 silly registry.get cb [ 304,
+59 silly registry.get   { date: 'Sun, 09 Nov 2014 05:44:44 GMT',
+59 silly registry.get     server: 'Apache',
+59 silly registry.get     via: '1.1 varnish',
+59 silly registry.get     'last-modified': 'Sun, 09 Nov 2014 05:44:45 GMT',
+59 silly registry.get     'cache-control': 'max-age=60',
+59 silly registry.get     etag: '"2T6LLQOTUE6LRP8RD8SUZ5MIG"',
+59 silly registry.get     age: '0',
+59 silly registry.get     'x-served-by': 'cache-ty67-TYO',
+59 silly registry.get     'x-cache': 'HIT',
+59 silly registry.get     'x-cache-hits': '1',
+59 silly registry.get     'x-timer': 'S1415511884.755591,VS0,VE507',
+59 silly registry.get     vary: 'Accept',
+59 silly registry.get     'content-length': '0',
+59 silly registry.get     'keep-alive': 'timeout=10, max=50',
+59 silly registry.get     connection: 'Keep-Alive' } ]
+60 verbose etag https://registry.npmjs.org/passport from cache
+61 silly addNameRange number 2 { name: 'passport', range: '*', hasData: true }
+62 silly addNameRange versions [ 'passport',
+62 silly addNameRange   [ '0.1.0',
+62 silly addNameRange     '0.1.1',
+62 silly addNameRange     '0.1.2',
+62 silly addNameRange     '0.1.3',
+62 silly addNameRange     '0.1.4',
+62 silly addNameRange     '0.1.5',
+62 silly addNameRange     '0.1.6',
+62 silly addNameRange     '0.1.7',
+62 silly addNameRange     '0.1.8',
+62 silly addNameRange     '0.1.9',
+62 silly addNameRange     '0.1.10',
+62 silly addNameRange     '0.1.11',
+62 silly addNameRange     '0.1.12',
+62 silly addNameRange     '0.1.13',
+62 silly addNameRange     '0.1.14',
+62 silly addNameRange     '0.1.15',
+62 silly addNameRange     '0.1.16',
+62 silly addNameRange     '0.1.17',
+62 silly addNameRange     '0.1.18',
+62 silly addNameRange     '0.2.0',
+62 silly addNameRange     '0.2.1' ] ]
+63 verbose addNamed [ 'passport', '0.2.1' ]
+64 verbose addNamed [ '0.2.1', '0.2.1' ]
+65 silly lockFile b563cf22-passport-0-2-1 passport@0.2.1
+66 verbose lock passport@0.2.1 C:\Users\Administrator\AppData\Roaming\npm-cache\b563cf22-passport-0-2-1.lock
+67 silly lockFile b563cf22-passport-0-2-1 passport@0.2.1
+68 silly lockFile b563cf22-passport-0-2-1 passport@0.2.1
+69 silly lockFile 55e2d188-passport passport@*
+70 silly lockFile 55e2d188-passport passport@*
+71 error 404 404 Not Found: passport-gihub
+71 error 404
+71 error 404 'passport-gihub' is not in the npm registry.
+71 error 404 You should bug the author to publish it
+71 error 404 It was specified as a dependency of 'blog'
+71 error 404
+71 error 404 Note that you can also install from a
+71 error 404 tarball, folder, or http url, or git url.
+72 error System Windows_NT 6.1.7601
+73 error command "D:\\env\\node\\\\node.exe" "D:\\env\\node\\node_modules\\npm\\bin\\npm-cli.js" "install"
+74 error cwd E:\workspace-nodejs\blog
+75 error node -v v0.10.33
+76 error npm -v 1.4.28
+77 error code E404
+78 verbose exit [ 1, true ]

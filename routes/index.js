@@ -2,6 +2,7 @@
 /*
  * GET home page.
  */
+var passport = require("passport");
 var crypto = require('crypto');
 var fs = require('fs');
 User = require('../models/user.js');
@@ -90,6 +91,15 @@ module.exports = function(app){
             error:req.flash('error').toString()
         })
     });
+    app.get('/login/github',passport.authenticate("github",{session:false}));
+    app.get('/github/callback',passport.authenticate("github",{
+        session:false,
+        failureRedirect:'login',
+        successFlash:'登陆成功!'
+    }),function(req,res){
+        req.session.user = {name:req.user.username,head:"http://gravatar.com/avatar/"+req.user._json.gravatar_id+"?s=48"};
+        res.redirect('/');
+    })
     app.get('/reg',checkNotLogin);
     app.post('/login',function(req,res){
         var name = req.body.name,

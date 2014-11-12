@@ -13,6 +13,6 @@
     "connect-flash":"*",
     "markdown":"*",
     "passport":"*",
-    "passport-gihub":"*"
+    "passport-github":"*"
   }
 }
