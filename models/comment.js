@@ -1,7 +1,8 @@
 /**
  * Created by bianlz on 2014/11/2.
  */
-var mongodb = require('./db')
+var mongodb = require('mongodb').Db;
+var settings = require('../settings');
 function Comment(name,title,day,comment){
     this.name = name,
     this.title = title,
@@ -15,13 +16,13 @@ Comment.prototype.save = function(callback){
         title=this.title,
         head = this.head,
         comment = this.comment;
-    mongodb.open(function(err,db){
+    mongodb.connect(settings.url,function(err,db){
         if(err){
             return callback(err);
         }
         db.collection('posts',function(err,collection){
             if(err){
-                mongodb.close();
+                db.close();
                 return callback(err);
             }
             collection.update({
@@ -29,7 +30,7 @@ Comment.prototype.save = function(callback){
                 "time.day":day,
                 "title":title
             },{$push:{"comments":comment}},function(err){
-                mongodb.close();
+                db.close();
                 if(err){
                     return callback(err);
                 }

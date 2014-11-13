@@ -29,9 +29,7 @@ app.use(express.session({
     secret:settings.cookieSecret,
     key:settings.db,
     cookie:{maxAge:1000*60*60*24*30},
-    store:new mongoStore({
-        db:settings.db
-    })
+    url:settings.url
 }))
 app.use(passport.initialize());
 app.use(app.router);
